@@ -1,29 +1,38 @@
 #!/bin/bash
 
-#alias ls='ls-color'
-alias ls='ls --color'
-#alias ls='/home/anderson/src/lsy/lsy.py'
-#alias ls='ls --color=always'
-alias ll='ls -l'
-#alias ll='ls -lc'
-alias lz='ll -Shr'
-alias lzd='ll -Sh'
-# alias p='ps -eFl | grep -i'
-alias f='find ./ -name'
-alias aur='yaourt --noconfirm'
-alias lm='lsmod | grep -i'
-alias di='du -csh'
-alias n='nautilus .'
-alias ww='watch --interval=0'
-alias grep='grep --color="always"'
-# alias egrep='egrep --color="always"'
-# alias fgrep='fgrep --color="always"'
-alias rm='rm -i'
-#alias cd='guake -r $PWD & cd'
-alias mt='perl -nle '"'"'BEGIN {$|++} print scalar(localtime), " | ", $_'"'"''
-alias fuck='$(thefuck $(fc -ln -1))'
-alias g='grep -i'
-alias vg='vagrant'
-alias o='xdg-open'
-alias diff='diff --color=always'
-alias p='ps aux | grep -i'
+################################################################################
+# use dir instead of ls -al
+################################################################################
+alias dir='ls -lah'
+#alias stat='stat -x'
+alias ls='ls -a --color=auto'
+#alias ls='ls -a'
+alias fCount='find . -type f | wc -l'
+alias grep='grep --color=auto'
+# return all lines that have extended ascii
+alias grepe='pcregrep --color='auto' -n -a "[\x80-\xFF]"'
+alias pj='python -m json.tool'
+alias ph='html5-print -s2 -t html -'
+alias px='xmllint --format --recover -'
+# get hex for each char in string
+alias hc='od -tx1c'
+alias rdupes='awk '"'"'!x[$0]++'"'"''
+alias pbp='pbpaste'
+alias pbc='pbcopy'
+alias helpme='display_help'
+alias re-encode="php -R 'echo html_entity_decode($argn);'"
+alias dockps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias query="python ~/Scripts/Python/query.py"
+alias echo="echo -e"
+alias utc='date -u "+%Y-%m-%d %H:%M:%S %Z"'
+alias pyg='pygmentize -l'
+alias ignore="LC_CTYPE=C"
+alias clean_cache="qlmanage -r cache"
+alias gs="git status"
+alias exif="exiftool -a -b -W %d%f_%t%-c.%s -preview:all"
+alias csvm="csvlook -I -d "
+alias uploads="python ~/Scripts/Python/queries/query.py && tabview temp.csv"
+alias drives="df -h"
+alias sp="python manage.py shell_plus --ipython"
+alias ck='coverage html --omit=".env/*","keeperapp/migrations/*"'
+alias ck-test="coverage run --source=. --omit=.env manage.py test -v 2"
